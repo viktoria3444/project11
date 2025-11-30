@@ -1,0 +1,425 @@
+/* Основні стилі */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Hero */
+.hero {
+  background: url("images/hero.jpg") center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  color: #a88a6a !important;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 10px 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: #d6c3ad;
+  color: #5a4633;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #b33a3a;
+}
+
+/* Sections */
+section {
+  padding: 60px 0;
+}
+
+.about img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Call to Action */
+.cta {
+  background: url("images/cta-bg.jpg") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta h2 {
+  font-size: 2rem;
+}
+
+/* Blog */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.blog img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex; /* ❗ СТАВИТЬ ЕЛЕМЕНТИ В ЛІНІЙКУ */
+  gap: 20px; /* відстань між пунктами */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #d08a8a;
+}
+
+/* ▼ Дропдаун */
+.has-dropdown:hover .dropdown {
+  display: block;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  border-radius: 6px;
+}
+
+.dropdown li {
+  padding: 5px 15px;
+  white-space: nowrap;
+}
+
+.dropdown a {
+  color: #333;
+}
+
+.dropdown a:hover {
+  color: #d08a8a;
+}
+
+/* ❗ ПРИХОВАТИ ГАМБУРГЕР, ЯКЩО ВІН НЕ ПОТРІБНИЙ */
+.nav-toggle {
+  display: none;
+}
+.founders {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* щоб на телефонах переходило в стовпчик */
+}
+
+.founder {
+  width: 300px; /* картки однакового розміру */
+}
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+/* Контейнер форми */
+.review-panel {
+  background: #f8efe9; /* ніжний бежевий */
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+  border: 1px solid #e4d7cf;
+}
+
+/* Заголовок форми */
+.review-panel h2 {
+  margin-bottom: 16px;
+  font-size: 28px;
+  color: #8b6f5a; /* темніший бежево-коричневий */
+  font-weight: 700;
+}
+
+/* Поля вводу */
+.review-panel input,
+.review-panel textarea {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: 1px solid #d6c6bc;
+  background: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.review-panel input:focus,
+.review-panel textarea:focus {
+  border-color: #bfa091;
+  box-shadow: 0 0 0 3px rgba(190, 160, 145, 0.25);
+}
+
+/* Кнопка */
+.review-panel button {
+  background: #c8a890;
+  color: red;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.review-panel button:hover {
+  background: #b69179;
+}
+
+/* Блок одного відгуку */
+.review-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #eee3dc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.review-card .name {
+  font-weight: 700;
+  font-size: 18px;
+  color: #7d5d48;
+}
+
+.review-card .date {
+  font-size: 14px;
+  color: #a58f81;
+  margin-bottom: 10px;
+}
+
+.review-card .message {
+  font-size: 16px;
+  color: #4a3f36;
+}
+
+/* Зірочки */
+.stars span {
+  font-size: 22px;
+  cursor: pointer;
+  color: #d1a788;
+}
+
+.stars span.selected {
+  color: #ae7f5b;
+}
+
+/* Відступи між картками відгуків */
+#reviewsList {
+  display: grid;
+  gap: 20px;
+}
+.review-form.card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px 28px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f2e9e4;
+}
+
+.review-form h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #8a6f5a;
+}
+
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e8dcd2;
+  background: #fff9f6;
+  margin-bottom: 12px;
+}
+
+.review-form button {
+  background: #c7a98c;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.review-form button:hover {
+  background: #b08f75;
+}
+.btn--light {
+  background-color: #e6d7c3 !important; /* м'який беж */
+  color: #5a4633 !important; /* темний текст */
+  border: none !important;
+}
+
+.btn--light:hover {
+  background-color: #d8c5aa !important; /* темніший беж */
+  color: #3d2f23 !important;
+}
+.hero input,
+.hero .input,
+.form-input {
+  background: #e6d7c3 !important;
+  color: #5a4633 !important;
+  border: 1px solid #d1bfa5 !important;
+}
+
+.hero input::placeholder {
+  color: #7a6b5c !important;
+}
+
+/* Reviews */
+.reviews-wrap {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.25rem;
+}
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.review .meta {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+.rating .star {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.rating .star.active {
+  color: var(--accent-dark);
+  transform: scale(1.1);
+}
+
+/* Contact */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.25rem;
+}
+.contact-form label,
+.review-form label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.contact-form input,
+.contact-form textarea,
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #efe6e6;
+}
