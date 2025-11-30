@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="uk">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wedding Moments — Організація весіль</title>
+  <meta name="description" content="Wedding Moments — організація весіль, декор, флористика, фото/відео, координація. Львів." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* =================== BASE / RESET =================== */
+    :root {
+      --bg: #fffaf5;
+      --text: #1f1f1f;
+      --muted: #6b6b6b;
+      --brand: #e07a5f;
+      --brand-600: #cc6b53;
+      --accent: #f4c97c;
+      --card: #fff;
+      --shadow: 0 8px 28px rgba(16, 16, 16, 0.06);
+      --radius: 14px;
+      --container: 1160px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    /* =================== LAYOUT =================== */
+    .container {
+      width: min(92vw, var(--container));
+      margin-inline: auto
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: #fff7ec;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0, 0, 0, .06)
+    }
+
+    .header-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-inline: 16px
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700
+    }
+
+    .logo__mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(80% 80% at 30% 20%, var(--accent), #ffd9a1 60%, #fff 100%);
+      box-shadow: var(--shadow)
+    }
+
+    .logo__text {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px
+    }
+
+    /* NAV */
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px
+    }
+
+    .nav-list {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    .nav-list a {
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-weight: 600;
+      color: #2b2b2b
+    }
+
+    .nav-list a.active {
+      background: linear-gradient(90deg, var(--brand), var(--brand-600));
+      color: #fff
+    }
+
+    .nav-toggle {
+      display: none
+    }
+
+    .burger {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, .06);
+      background: #fff;
+      box-shadow: var(--shadow)
+    }
+
+    /* MOBILE PANEL */
+    .mobile-panel {
+      position: fixed;
+      inset: 72px 0 0 0;
+      background: #fff;
+      height: calc(100dvh - 72px);
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .22s, var(--translate);
+      padding: 20px;
+      z-index: 50;
+      border-top: 1px solid rgba(0, 0, 0, .06)
+    }
+
+    .mobile-panel.open {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto
+    }
+
+    .mobile-panel a {
+      display: block;
+      padding: 12px;
+      border-radius: 10px
+    }
+
+    /* =================== HERO =================== */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(1400px 420px at 50% -240px, var(--accent), transparent 60%), url('https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2100&auto=format&fit=crop') center/cover no-repeat;
+      filter: saturate(1.02)
+    }
+
+    .hero__veil {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .65) 0%, rgba(255, 255, 255, .35) 40%, rgba(255, 255, 255, .15) 100%)
+    }
+
+    .hero__card {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, .86);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      width: min(92%, 980px)
+    }
+
+    .eyebrow {
+      font-weight: 700;
+      color: var(--brand-700);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 12px
+    }
+
+    .hero__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1.05;
+      margin: 8px 0
+    }
+
+    .hero__meta {
+      color: var(--muted);
+      font-weight: 500
+    }
+
+    .hero__ctas {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, .06);
+      background: #fff;
+      font-weight: 600;
+      cursor: pointer
+    }
+
+    .btn--primary {
+      background: var(--brand);
+      color: #fff;
+      border-color: transparent
+    }
+
+    /* =================== SECTIONS =================== */
+    section {
+      padding: 56px 0
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 5vw, 36px);
+      margin-bottom: 12px;
+      text-align: center
+    }
+
+    .section-lead {
+      color: var(--muted);
+      max-width: 60ch;
+      margin-inline: auto;
+      text-align: center
+    }
+
+    .about-grid {
+      margin-top: 24px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden
+    }
+
+    .card__media {
+      aspect-ratio: 16/10;
+      background: #eee
+    }
+
+    .card__body {
+      padding: 16px
+    }
+
+    .chip {
+      display: inline-block;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff4eb;
+      color: var(--brand-700);
+      font-weight: 600
+    }
+
+    .gallery-grid {
+      margin-top: 20px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, 1fr)
+    }
+
+    .gallery-grid a {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow)
+    }
+
+    .timeline {
+      margin-top: 20px;
+      display: grid;
+      gap: 14px
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: var(--shadow)
+    }
+
+    .map {
+      width: 100%;
+      height: 320px;
+      border: 0;
+      border-radius: 16px;
+      box-shadow: var(--shadow)
+    }
+
+    footer.site-footer {
+      background: #1f1b18;
+      color: #fff;
+      padding: 36px 0 24px
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1fr
+    }
+
+    .to-top {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, .08);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s
+    }
+
+    .to-top.show {
+      opacity: 1;
+      pointer-events: auto
+    }
+
+    /* ===== Responsive ===== */
+    @media(min-width:481px) {
+      .about-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .timeline {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .map {
+        height: 360px
+      }
+    }
+
+    @media(min-width:769px) {
+      :root {
+        --container: 1160px
+      }
+
+      .nav-toggle {
+        display: none
+      }
+
+      .burger {
+        display: none
+      }
+
+      .hero__card {
+        padding: 40px 48px
+      }
+
+      .about-grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr)
+      }
+
+      .timeline {
+        grid-template-columns: repeat(4, 1fr)
+      }
+
+      .map {
+        height: 420px
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.2fr .8fr .8fr
+      }
+    }
+
+    /* small interactions */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .6s ease, transform .6s ease
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: none
+    }
+
+    .sr-only {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap
+    }
+
+    /* Forms */
+    .form-row {
+      display: flex;
+      gap: 12px
+    }
+
+    .form-row .col {
+      flex: 1
+    }
+
+    /* Rating stars small */
+    .star {
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      cursor: pointer
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site">
+
+    <!-- HEADER -->
+    <header class="site-header" id="siteHeader" role="banner">
+      <div class="container header-inner">
+        <a class="logo" data-nav="home" href="#" aria-label="Wedding Moments home" onclick="openPage('home')">
+          <span class="logo__mark" aria-hidden="true">
+            <svg viewBox="0 0 36 36" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="16" fill="#e07a5f" opacity=".95" />
+            </svg>
+          </span>
+          <span class="logo__text">Wedding <span style="color:var(--brand)">Moments</span></span>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <button class="nav-toggle burger" id="burger" aria-expanded="false" aria-controls="mobilePanel" title="Відкрити меню">☰</button>
+
+          <ul class="nav-list" id="navList">
+            <li class="nav-item has-dropdown"><a href="#" class="nav-link" data-nav="home" onclick="openPage('home')">Головна</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" data-nav="services" onclick="openPage('services')">Послуги</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" data-nav="portfolio" onclick="openPage('portfolio')">Портфоліо</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" data-nav="team" onclick="openPage('team')">Команда</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" data-nav="reviews" onclick="openPage('reviews')">Відгуки</a></li>
+            <li class="nav-item"><a href="#" class="nav-link cta btn--primary" data-nav="contact" onclick="openPage('contact')">Контакти</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MOBILE PANEL -->
+    <div id="mobilePanel" class="mobile-panel" hidden>
+      <a href="#" onclick="openPage('home');togglePanel(false)">Home</a>
+      <a href="#" onclick="openPage('services');togglePanel(false)">Services</a>
+      <a href="#" onclick="openPage('portfolio');togglePanel(false)">Portfolio</a>
+      <a href="#" onclick="openPage('team');togglePanel(false)">Team</a>
+      <a href="#" onclick="openPage('reviews');togglePanel(false)">Reviews</a>
+      <a href="#" onclick="openPage('contact');togglePanel(false)" class="btn btn--primary">Contact</a>
+    </div>
+
+    <!-- MAIN: each .page is a separate "page" (variant 2). All pages include the same common sections — hero, about, services preview... but only the page's "full" section will be emphasized. -->
+    <main id="mainContent">
+
+      <!-- HOME PAGE -->
+      <article id="home" class="page active" role="article">
+        <section class="hero" aria-labelledby="homeHeading">
+          <div class="hero__bg" aria-hidden="true"></div>
+          <div class="hero__veil" aria-hidden="true"></div>
+          <div class="container">
+            <div class="hero__card">
+              <div class="eyebrow">Великий день</div>
+              <h1 id="homeHeading" class="hero__title">Anna & Mark</h1>
+              <div class="hero__meta">12 жовтня 2025 • Львів, Україна</div>
+              <div class="hero__ctas">
+                <button class="btn" onclick="openModal('rsvp')">Підтвердити участь</button>
+                <button class="btn btn--primary" onclick="openPage('services')">Наші послуги</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about_home" class="about container section" aria-labelledby="aboutHeading">
+          <h2 id="aboutHeading" class="section-title">Про нас</h2>
+          <p class="section-lead">Ми познайомилися у 2018 році на каві з друзями та відтоді ділимо кожну пригоду разом. Будемо раді розділити ще одну — день нашого весілля — з вами.</p>
+
+          <div class="about-grid">
+            <article class="card">
+              <img class="card__media" src="https://plus.unsplash.com/premium_photo-1729688321610-f026deddf74f?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="Анна" />
+              <div class="card__body">
+                <span class="chip">Наречена</span>
+                <h3>Анна</h3>
+                <p>Любить подорожі, фотографію та ванільні круасани.</p>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card__media" src="https://plus.unsplash.com/premium_photo-1755755246830-cbb875c6ee43?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="Марк" />
+              <div class="card__body">
+                <span class="chip">Наречений</span>
+                <h3>Марк</h3>
+                <p>Прихильник гітари, довгих прогулянок і фільмів Нолана.</p>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card__media" src="https://plus.unsplash.com/premium_photo-1674435399979-49fcb7a74a3a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Історія" />
+              <div class="card__body">
+                <span class="chip">Історія</span>
+                <h3>Наша історія</h3>
+                <p>Випадкова зустріч переросла у справжнє кохання.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="services_preview_home" class="container section services-preview">
+          <h2 class="section-title">Наші послуги</h2>
+          <p class="section-lead">Планування, декор, флористика, фото/відео та координація дня — під ключ.</p>
+          <div class="cards" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:18px">
+            <div class="card card--small card-service">
+              <div class="card__body">
+                <h3>Повна організація</h3>
+                <p>Концепція, бюджет, підрядники, супровід.</p>
+              </div>
+            </div>
+            <div class="card card--small card-service">
+              <div class="card__body">
+                <h3>Декор та флористика</h3>
+                <p>Арки, композиції, квіткові рішення.</p>
+              </div>
+            </div>
+            <div class="card card--small card-service">
+              <div class="card__body">
+                <h3>Фото & Відео</h3>
+                <p>Професійна команда для спогадів.</p>
+              </div>
+            </div>
+            <div class="card card--small card-service">
+              <div class="card__body">
+                <h3>Координація дня</h3>
+                <p>Координатор на місці, таймінг і логістика.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="gallery_home" class="container section" aria-labelledby="galleryHeading">
+          <h2 id="galleryHeading" class="section-title">Галерея</h2>
+          <p class="section-lead">Кілька моментів, що гріють серце.</p>
+          <div class="gallery-grid">
+            <a href="#" class="js-lightbox" data-img="https://plus.unsplash.com/premium_photo-1711306259444-6c4ab37f7291?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"><img src="https://plus.unsplash.com/premium_photo-1711305772029-3c619f2e9239?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="Фото 1" /></a>
+            <a href="#" class="js-lightbox" data-img="https://plus.unsplash.com/premium_photo-1711305772029-3c619f2e9239?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop"><img src="https://plus.unsplash.com/premium_photo-1711305771355-df27cb83b1f2?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="Фото 2" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1600&auto=format&fit=crop"><img src="https://plus.unsplash.com/premium_photo-1674027290746-a54ed7de32b5?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="Фото 3" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1600&auto=format&fit=crop"><img src="https://plus.unsplash.com/premium_photo-1675851210789-1bee72bcb8d9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="Фото 3" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1600&auto=format&fit=crop"><img src="https://plus.unsplash.com/premium_photo-1675851211534-4acd0a2b69a8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="Фото 3" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1600&auto=format&fit=crop"><img src="https://plus.unsplash.com/premium_photo-1675851210855-e7727076e829?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="Фото 3" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1617376394477-09de72827e31?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="Фото 3" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1747419003011-97b50122a653?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="Фото 3" /></a>
+
+          </div>
+        </section>
+
+        <section id="schedule_home" class="container section">
+          <h2 class="section-title">Програма дня</h2>
+          <p class="section-lead">Невеликий таймлайн, щоб було зручно планувати день.</p>
+          <div class="timeline">
+            <div class="step">
+              <div class="step__icon" aria-hidden="true">⛪</div>
+              <div>
+                <div class="step__time">14:00</div>
+                <div class="step__title">Церемонія</div>
+                <div class="step__desc">У дворі ресторану «Villa Park». Просимо прибути за 10–15 хв.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__icon" aria-hidden="true">📸</div>
+              <div>
+                <div class="step__time">15:30</div>
+                <div class="step__title">Фотосесія</div>
+                <div class="step__desc">Загальні фото з гостями, потім — прогулянка у парку.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__icon" aria-hidden="true">🍽️</div>
+              <div>
+                <div class="step__time">17:00</div>
+                <div class="step__title">Вечеря</div>
+                <div class="step__desc">Святковий стіл і тост від батьків.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__icon" aria-hidden="true">💃</div>
+              <div>
+                <div class="step__time">19:00</div>
+                <div class="step__title">Танці</div>
+                <div class="step__desc">DJ, перший танець і багато музики до півночі.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="location_home" class="container section location">
+          <h2 class="section-title">Локація</h2>
+          <p class="section-lead">Ресторан «Villa Park», вул. Зелена, 21, Львів. Паркування доступне поруч.</p>
+          <iframe class="map" title="Google Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2563.7391482452106!2d24.031111!3d49.842957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add6815555555%3ARestaurant!2sLviv!5e0!3m2!1suk!2sua!4v1681234567890"></iframe>
+        </section>
+
+      </article>
+
+      <!-- SERVICES PAGE -->
+      <article id="services" class="page" role="article" aria-labelledby="servicesHeading">
+        <!-- hero (same) -->
+        <section class="hero" aria-hidden="false">
+          <div class="hero__bg" aria-hidden="true"></div>
+          <div class="hero__veil" aria-hidden="true"></div>
+          <div class="container">
+            <div class="hero__card">
+              <div class="eyebrow">Послуги</div>
+              <h1 id="servicesHeading" class="hero__title">Наші послуги</h1>
+              <div class="hero__meta">Повний перелік послуг для вашого дня</div>
+              <div class="hero__ctas">
+                <button class="btn" onclick="openModal('rsvp')">Записатися на консультацію</button>
+                <button class="btn btn--primary" onclick="openPage('contact')">Зв'язок</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- about (shared) -->
+        <section class="about container section">
+          <h2 class="section-title">Про нас</h2>
+          <p class="section-lead">Wedding Moments — команда організаторів, декораторів та флористів з досвідом більше 5 років.</p>
+        </section>
+
+        <!-- services full -->
+        <section class="container section">
+          <h2 class="section-title">Детальні послуги</h2>
+          <div style="display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+            <div class="card">
+              <div class="card__body">
+                <h3>Повна організація</h3>
+                <p>Концепція, бюджет, підбір локації, підрядники, координація дня.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__body">
+                <h3>Декор та флористика</h3>
+                <p>Індивідуальні арки, композиції, флористичні інсталяції.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__body">
+                <h3>Фото & Відео</h3>
+                <p>Пакети фото/відео: репортаж, love-story, after-party.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__body">
+                <h3>Координація дня</h3>
+                <p>Координатор на подію, розклад, комунікація з підрядниками.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- gallery preview (shared) -->
+        <section class="container section">
+          <h2 class="section-title">Портфоліо (витримка)</h2>
+          <div class="gallery-grid">
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1651678869503-a1044069fbbc?q=80&w=1600&auto=format&fit=crop"><img src="https://plus.unsplash.com/premium_photo-1674435400586-cb881a3b8f80?q=80&w=1132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1513640038517-98240016bed1?q=80&w=1600&auto=format&fit=crop"><img src="https://plus.unsplash.com/premium_photo-1675003662546-d4d99dd0658e?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1651678732139-760498b438a2?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1651678732139-760498b438a2?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1591700331354-f7eea65d1ce8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1651678732139-760498b438a2?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1651678732139-760498b438a2?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1723052377735-6718351d6e7a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1651678732139-760498b438a2?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1600475666503-2f29c3719845?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="" /></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1651678732139-760498b438a2?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1571984129381-41d698ebca6b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt="" /></a>
+          </div>
+        </section>
+
+        <!-- contact CTA -->
+        <section class="container section" style="text-align:center">
+          <button class="btn btn--primary" onclick="openPage('contact')">Отримати індивідуальну пропозицію</button>
+        </section>
+      </article>
+
+      <!-- PORTFOLIO PAGE -->
+      <article id="portfolio" class="page" role="article">
+        <section class="hero">
+          <div class="hero__bg" aria-hidden="true"></div>
+          <div class="hero__veil" aria-hidden="true"></div>
+          <div class="container">
+            <div class="hero__card">
+              <div class="eyebrow">Портфоліо</div>
+              <h1 class="hero__title">Наші роботи</h1>
+              <div class="hero__meta">Підбірка фотографій та кейсів</div>
+            </div>
+          </div>
+        </section>
+        <section class="container section">
+          <h2 class="section-title">Портфоліо — повна галерея</h2>
+          <div class="gallery-grid">
+            <!-- multiple images -->
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop" alt=""></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1521543269800-27e08780ced7?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1521543269800-27e08780ced7?q=80&w=600&auto=format&fit=crop" alt=""></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1583939411023-14783179e581?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1583939411023-14783179e581?q=80&w=600&auto=format&fit=crop" alt=""></a>
+            <a href="#" class="js-lightbox" data-img="https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=600&auto=format&fit=crop" alt=""></a>
+          </div>
+        </section>
+      </article>
+
+      <!-- TEAM PAGE -->
+      <article id="team" class="page" role="article">
+        <section class="hero">
+          <div class="hero__bg" aria-hidden="true"></div>
+          <div class="hero__veil" aria-hidden="true"></div>
+          <div class="container">
+            <div class="hero__card">
+              <div class="eyebrow">Наша команда</div>
+              <h1 class="hero__title">Ті, хто творить свято</h1>
+              <div class="hero__meta">Дизайн, флористика, координація</div>
+            </div>
+          </div>
+        </section>
+        <section class="container section">
+          <div class="team-grid" style="display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+            <article class="card team-member"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=900" alt="Olena">
+              <div class="card__body">
+                <h3>Олена</h3>
+                <p>Засновниця — декораторка</p>
+              </div>
+            </article>
+            <article class="card team-member"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=900" alt="Ivan">
+              <div class="card__body">
+                <h3>Іван</h3>
+                <p>Керівник проектів</p>
+              </div>
+            </article>
+            <article class="card team-member"><img src="https://images.unsplash.com/photo-1586351012965-861624544334?q=80&w=687" alt="Maria">
+              <div class="card__body">
+                <h3>Марія</h3>
+                <p>Флористка</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </article>
+
+      <!-- REVIEWS PAGE (FULL) -->
+      <section id="reviews" class="page page-reviews" aria-labelledby="reviewsHeading">
+        <div class="container section">
+          <h1 id="reviewsHeading">Відгуки</h1>
+          <p class="muted">Погляньте на відгуки десятків пар, які довірили нам свій день.</p>
+
+          <div class="reviews-wrap small-gap">
+            <div class="reviews-list" id="reviewsList">
+              <!-- all reviews populated by JS (≈40) -->
+            </div>
+
+            <aside class="review-form card">
+              <h3>Залишити відгук</h3>
+              <form id="reviewForm">
+                <label>Ім'я <input type="text" name="name" required></label>
+                <label>Email <input type="email" name="email"></label>
+                <label>Оцінка
+                  <div class="rating" id="rating">
+                    <button type="button" class="star" data-value="1">★</button>
+                    <button type="button" class="star" data-value="2">★</button>
+                    <button type="button" class="star" data-value="3">★</button>
+                    <button type="button" class="star" data-value="4">★</button>
+                    <button type="button" class="star" data-value="5">★</button>
+                  </div>
+                </label>
+                <label>Повідомлення <textarea name="message" rows="4" required></textarea></label>
+                <input type="hidden" name="ratingValue" id="ratingValue" value="5">
+                <button class="btn btn-primary" type="submit">Надіслати</button>
+              </form>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT PAGE -->
+      <article id="contact" class="page" role="article">
+        <section class="hero">
+          <div class="hero__bg" aria-hidden="true"></div>
+          <div class="hero__veil" aria-hidden="true"></div>
+          <div class="container">
+            <div class="hero__card">
+              <div class="eyebrow">Контакти</div>
+              <h1 class="hero__title">Зв'яжіться з нами</h1>
+              <div class="hero__meta">Готові допомогти з будь-яким питанням</div>
+            </div>
+          </div>
+        </section>
+        <section class="container section">
+          <div style="display:grid;gap:18px;grid-template-columns:1fr 360px;align-items:start">
+            <form id="contactForm" class="card" style="padding:18px">
+              <label>Ім'я <input type="text" name="name" required style="width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid #eee"></label>
+              <label>Email <input type="email" name="email" required style="width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid #eee"></label>
+              <label>Телефон <input type="tel" name="phone" style="width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid #eee"></label>
+              <label>Повідомлення <textarea name="message" rows="5" required style="width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid #eee"></textarea></label>
+              <div style="display:flex;gap:12px;margin-top:12px"><button class="btn btn--primary" type="submit">Надіслати</button><button class="btn" type="button" onclick="openModal('rsvp')">RSVP</button></div>
+            </form>
+
+            <aside class="card" style="padding:18px">
+              <h3>Контакти</h3>
+              <p><strong>Email:</strong> <a href="mailto:hello@weddingmoments.com">hello@weddingmoments.com</a></p>
+              <p><strong>Телефон:</strong> <a href="tel:+380501234567">+38 (050) 123-45-67</a></p>
+              <p><strong>Instagram:</strong> <a href="https://instagram.com/weddingmoments" target="_blank" rel="noopener">@weddingmoments</a></p>
+            </aside>
+          </div>
+        </section>
+      </article>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-grid" style="display:grid;grid-template-columns:1fr;gap:20px">
+        <div>
+          <a class="logo logo-footer" href="#" onclick="openPage('home')">
+            <span class="logo__mark" aria-hidden="true"></span>
+            <span class="logo__text">Wedding <span style="color:var(--brand)">Moments</span></span>
+          </a>
+          <p style="margin-top:8px;color:#dcd2ca">З любовʼю, 2025 © Wedding Moments</p>
+        </div>
+        <div>
+          <nav style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="#" onclick="openPage('home')">Головна</a>
+            <a href="#" onclick="openPage('services')">Послуги</a>
+            <a href="#" onclick="openPage('portfolio')">Портфоліо</a>
+            <a href="#" onclick="openPage('team')">Команда</a>
+            <a href="#" onclick="openPage('reviews')">Відгуки</a>
+            <a href="#" onclick="openPage('contact')">Контакти</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <!-- TO TOP -->
+    <a class="to-top" id="toTop" href="#" aria-label="До гори" onclick="openPage('home')">↑</a>
+
+    <!-- MODALS -->
+    <dialog id="modal-rsvp" aria-labelledby="rsvp-title">
+      <form method="dialog" id="rsvp-form" style="min-width:min(92vw,520px);padding:12px;" novalidate>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 12px 0 12px">
+          <h3 id="rsvp-title" style="margin:0;font-family:'Playfair Display',serif;font-size:20px">Підтвердження участі (RSVP)</h3>
+          <button value="cancel" aria-label="Закрити" style="border:none;background:#fff;width:36px;height:36px;border-radius:10px;box-shadow:var(--shadow)">✕</button>
+        </div>
+        <div style="padding:16px 12px 12px 12px;display:grid;gap:12px">
+          <label>Імʼя та прізвище<br><input required name="name" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid #ddd" placeholder="Напр.: Олена Іваненко" /></label>
+          <label>Ел. пошта<br><input type="email" name="email" required style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid #ddd" placeholder="you@mail.com" /></label>
+          <label>Кількість гостей<br><select name="guests" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid #ddd">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select></label>
+          <label>Коментар / алергії<br><textarea name="note" rows="3" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid #ddd" placeholder="Напишіть, якщо є побажання"></textarea></label>
+          <div style="display:flex;gap:10px"><button class="btn btn--primary" value="submit">Надіслати</button><button class="btn" value="cancel">Скасувати</button></div>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="modal-lightbox" style="padding:0;border:none;background:transparent;">
+      <img id="lightbox-img" alt="Перегляд" style="max-width:92vw;max-height:86vh;border-radius:16px;box-shadow:var(--shadow)" />
+    </dialog>
+
+  </div>
+
+  <script>
+    // ---------- Page switching (Variant 2) ----------
+    const pages = Array.from(document.querySelectorAll('.page'));
+    const navLinks = Array.from(document.querySelectorAll('.nav-list a'));
+
+    function openPage(id) {
+      pages.forEach(p => p.id === id ? p.classList.add('active') : p.classList.remove('active'));
+      // update active nav
+      navLinks.forEach(a => {
+        if (a.dataset.nav === id) a.classList.add('active');
+        else a.classList.remove('active');
+      });
+      // scroll to top of document
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      // set focus to main heading for a11y
+      const active = document.getElementById(id);
+      const h = active && active.querySelector('.hero__title');
+      if (h) h.setAttribute('tabindex', '-1'), h.focus({
+        preventScroll: true
+      });
+    }
+    // set initial active
+    document.addEventListener('DOMContentLoaded', () => {
+      openPage('home');
+      // fill few reviews as example
+      const reviews = [{
+          name: 'Олена',
+          text: 'Найкраща команда! Все було ідеально.'
+        },
+        {
+          name: 'Ігор',
+          text: 'Чудова координація та атмосфера.'
+        },
+        {
+          name: 'Марія',
+          text: 'Дякуємо — все пройшло краще, ніж ми мріяли.'
+        }
+      ];
+      const reviewsList = document.getElementById('reviewsList');
+      reviews.forEach(r => {
+        const el = document.createElement('div');
+        el.className = 'card';
+        el.style.padding = '14px';
+        el.innerHTML = `<strong>${r.name}</strong><p style="margin-top:6px">${r.text}</p>`;
+        reviewsList.appendChild(el);
+      });
+    });
+    // ---------- Mobile panel toggle ----------
+    const burger = document.getElementById('burger');
+    const panel = document.getElementById('mobilePanel');
+
+    function togglePanel(force) {
+      const expanded = typeof force !== 'undefined' ? force : burger.getAttribute('aria-expanded') !== 'true';
+      burger.setAttribute('aria-expanded', expanded);
+      if (expanded) {
+        panel.hidden = false;
+        panel.classList.add('open');
+      } else {
+        panel.classList.remove('open');
+        setTimeout(() => panel.hidden = true, 220);
+      }
+    }
+    burger && burger.addEventListener('click', () => togglePanel());
+    // close panel on resize to desktop
+    const mq = window.matchMedia('(min-width:769px)');
+    mq.addEventListener('change', (e) => {
+      if (e.matches) togglePanel(false);
+    });
+    // ---------- Smooth reveal on scroll ----------
+    const reveals = document.querySelectorAll('.fade-up');
+
+    function revealOnScroll() {
+      reveals.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 80) el.classList.add('visible');
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+    // ---------- Lightbox ----------
+    const lightbox = document.getElementById('modal-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('.js-lightbox');
+      if (!link) return;
+      e.preventDefault();
+      lightboxImg.src = link.dataset.img || link.href;
+      lightbox.showModal();
+    });
+    lightbox && lightbox.addEventListener('click', () => lightbox.close());
+    // ---------- RSVP modal ----------
+    const rsvpDialog = document.getElementById('modal-rsvp');
+
+    function openModal(name) {
+      if (name === 'rsvp') rsvpDialog.showModal();
+    }
+    rsvpDialog && rsvpDialog.addEventListener('close', () => {
+      document.body.style.overflow = '';
+    });
+    document.getElementById('rsvp-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.currentTarget);
+      if (!fd.get('name') || !fd.get('email')) return alert('Будь ласка, заповніть імʼя та ел. пошту.');
+      rsvpDialog.close();
+      const toast = document.createElement('div');
+      toast.textContent = 'Дякуємо! Ми отримали вашу відповідь.';
+      Object.assign(toast.style, {
+        position: 'fixed',
+        inset: 'auto 16px 16px auto',
+        background: '#1f1f1f',
+        color: '#fff',
+        padding: '12px 14px',
+        borderRadius: '12px',
+        boxShadow: 'var(--shadow)',
+        zIndex: 60
+      });
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3200);
+    });
+    // ---------- Contact form (front-end stub) ----------
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Дякуємо! Ваше повідомлення надіслано (локально).');
+      e.target.reset();
+    });
+    // ---------- Back to top visibility ----------
+    const toTop = document.getElementById('toTop');
+
+    function toggleTop() {
+      toTop.classList.toggle('show', window.scrollY > 700);
+    }
+    window.addEventListener('scroll', toggleTop);
+    toggleTop();
+  </script>
+</body>
+
+</html>
